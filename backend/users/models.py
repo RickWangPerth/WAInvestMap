@@ -4,13 +4,16 @@ from django.utils.translation import gettext_lazy as _
 import os
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from .validators import validate_name,validate_email
 
 from .managers import CustomUserManager
 
 # Create your models here.
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(_("email address"), unique=True)
+    username = models.CharField(max_length=255,validators=[validate_name])
+    email = models.EmailField(_("email address"), unique=True, validators=[validate_email])
+    password = models.CharField(max_length=255)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
