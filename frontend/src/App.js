@@ -1,16 +1,18 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Profile  from "./components/profiles";
+import Profile from './components/profiles';
 import Navigation from './components/navigation';
-import { Logout } from './components/logout';
+import Userinfo from './components/userinfo';
 
 function App() {
+
+
   return (
     <BrowserRouter>
       <Navigation />
       <Routes>
         <Route path="/" element={<Profile />} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
+        <Route path="/userinfo" element={<Userinfo />} />
       </Routes>
     </BrowserRouter>
   );

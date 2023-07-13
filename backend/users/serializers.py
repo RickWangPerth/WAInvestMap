@@ -56,3 +56,6 @@ class ProfileAvatarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ("avatar",)
+
+class EmptySerializer(serializers.Serializer):
+    pass

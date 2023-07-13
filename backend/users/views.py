@@ -45,11 +45,13 @@ class UserLoginAPIView(GenericAPIView):
         data["tokens"] = {"refresh": str(token), "access": str(token.access_token)}
         return Response(data, status=status.HTTP_200_OK)
 
+
+
 class UserLogoutAPIView(GenericAPIView):
     """
     An endpoint to logout users.
     """
-
+    serializer_class = serializers.EmptySerializer
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):

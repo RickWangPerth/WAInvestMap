@@ -1,13 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import  Login from "./login";
-import { Home } from "./home";
+import  Userhome  from "./userHome";
+
 const Profile = () => {
   const state = useSelector((state) => state.user);
+  console.log(state.profile)
   return (
     <div>
-      <h1>Profile Info</h1>
-      {state.profile.isLogin ? <Home /> : <Login />}
+      {state.profile.isLogin ? <Userhome /> : <Login />}
     </div>
   );
 };

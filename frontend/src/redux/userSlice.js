@@ -3,27 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   profile: {
     name: "",
-    age: 0,
     email: "",
-    isLogin: true,
+    password: "",
+    accessToken: "",
+    refreshToken: "",
+    isLogin: false,
   },
 };
-
 const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
     setLogin(state, action) {
-      const { name, age, email } = action.payload;
-      state.value = {
+      const { name, password, email, accessToken, refreshToken } = action.payload;
+      state.profile = {
         name,
-        age,
+        password,
         email,
+        accessToken,
+        refreshToken,
         isLogin: true,
       };
+      console.log(state.profile);
     },
-    setLogout(state, action) {
-      state.value = initialState;
+    setLogout(state) {
+        state.profile = initialState;
     },
   },
 });
