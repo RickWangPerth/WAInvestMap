@@ -1,1 +1,1 @@
-# JWT-Verification-Django-React
+# WAInvestMap
